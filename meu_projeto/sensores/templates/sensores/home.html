@@ -1,0 +1,10 @@
+{% extends 'sensores/base.html' %}
+
+{% block content %}
+<h2>Bem-vindo ao Sistema de Gerenciamento de Sensores</h2>
+<p>Escolha uma das opções abaixo:</p>
+<div>
+    <button onclick="location.href='{% url 'list_sensors' %}'">Listar Sensores</button>
+    <button onclick="location.href='{% url 'create_sensor' %}'">Criar Novo Sensor</button>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'sensores/base.html' %}
+
+{% block content %}
+<h2>Leituras do Sensor: {{ sensor.nome }}</h2>
+<table>
+    <tr>
+        <th>Data</th>
+        <th>Hora</th>
+        <th>Valor</th>
+    </tr>
+    {% for leitura in leituras %}
+        <tr>
+            <td>{{ leitura.data|date:"d/m/Y" }}</td>
+            <td>{{ leitura.hora }}</td>
+            <td>{{ leitura.valor }}</td>
+        </tr>
+    {% empty %}
+        <tr>
+            <td colspan="3">Nenhuma leitura registrada.</td>
+        </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'create_leitura' sensor.sensor_id %}">Adicionar Nova Leitura</a>
+<a href="{% url 'list_sensors' %}">Voltar para a lista de sensores</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'sensores/base.html' %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Criar Leitura para <span class="highlight">{{ sensor.nome }}</span></h2>
+    <form method="post" class="styled-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-primary">Salvar Leitura</button>
+    </form>
+    <a href="{% url 'list_sensors' %}" class="btn-secondary">Voltar para a lista de sensores</a>
+</div>
+{% endblock %}

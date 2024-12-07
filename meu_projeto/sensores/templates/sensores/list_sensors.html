@@ -1,0 +1,33 @@
+{% extends 'sensores/base.html' %}
+
+{% block content %}
+<div class="table-container">
+    <h2>Lista de Sensores</h2>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sensor in sensors %}
+                <tr>
+                    <td>{{ sensor.nome }}</td>
+                    <td>{{ sensor.descricao }}</td>
+                    <td>
+                        <a href="{% url 'update_sensor' sensor.sensor_id %}" class="btn-edit">Editar</a>
+                        <a href="{% url 'delete_sensor' sensor.sensor_id %}" class="btn-delete">Deletar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">Nenhum sensor encontrado.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

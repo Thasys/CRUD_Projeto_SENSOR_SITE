@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>{% block title %}Sistema de Sensores{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sensores/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <header>
+            <div class="header-container">
+                <img src="{% static 'sensores/img/logo/img_logo.png' %}" alt="Instituto Federal Sergipe" class="logo">
+                <div class="header-text">
+                    <h1>Gerenciamento de Sensores</h1>
+                    <p>Por Tharsys da Silva Ribeiro</p>
+                </div>
+                <a href="{% url 'home' %}" class="home-button">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </div>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+            <p>Todos os direitos reservados &copy; {{ now|date:"Y" }}</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'sensores/base.html' %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Criar Sensor</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.nome.label_tag }}
+            {{ form.nome }}
+        </div>
+        <div class="form-group">
+            {{ form.descricao.label_tag }}
+            {{ form.descricao }}
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+</div>
+{% endblock %}
